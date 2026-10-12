@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-motion="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>My List - Netflix Clone</title>
+  <script>try{var s=JSON.parse(localStorage.getItem("nf-clone:v1")||"{}");document.documentElement.dataset.theme=s.theme||"dark"}catch(e){}</script>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="my-list">
+<main class="page">
+  <h1 class="page-title">My List</h1>
+  <section id="contWrap" hidden>
+    <h2 class="section-title">Continue watching</h2>
+    <div class="grid" id="contGrid"></div>
+  </section>
+  <section id="listWrap" hidden>
+    <h2 class="section-title">Saved titles</h2>
+    <div class="grid" id="listGrid"></div>
+  </section>
+  <div class="empty-state" id="emptyList" hidden>
+    <p>Your list is empty. Use the + on any poster to save a title here.</p>
+    <a class="btn-play" href="browse.html">Browse titles</a>
+  </div>
+</main>
+<footer class="footer"><p>Built for learning. Not affiliated with Netflix.</p></footer>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chrome.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/studio.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

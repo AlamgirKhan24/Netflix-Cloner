@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-motion="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Settings - Netflix Clone</title>
+  <script>try{var s=JSON.parse(localStorage.getItem("nf-clone:v1")||"{}");document.documentElement.dataset.theme=s.theme||"dark"}catch(e){}</script>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="settings">
+<main class="page">
+  <h1 class="page-title">Settings</h1>
+  <div class="settings">
+    <section class="card glass">
+      <h2>Account</h2>
+      <div class="row"><span id="setEmail"></span><button class="neu pill sm" data-act="signout" type="button">Sign out</button></div>
+    </section>
+    <section class="card glass">
+      <h2>Profile</h2>
+      <label class="field"><span>Profile name</span><input class="input" id="setName" maxlength="14"></label>
+      <a class="muted" href="profiles.html">Switch or manage profiles</a>
+    </section>
+    <section class="card glass">
+      <h2>Playback</h2>
+      <label class="field"><span>Default volume</span><input class="slider" id="setVol" type="range" min="0" max="100"></label>
+      <label class="field"><span>Default brightness</span><input class="slider" id="setBright" type="range" min="50" max="150"></label>
+    </section>
+    <section class="card glass">
+      <h2>Appearance</h2>
+      <div class="row"><span class="muted">Theme, accent colour, liquid glass and presets.</span><button class="neu pill sm" id="openStudio" type="button">Open studio</button></div>
+    </section>
+    <section class="card glass">
+      <h2>Data</h2>
+      <div class="row"><span class="muted">Everything is stored in this browser only.</span></div>
+      <div class="row">
+        <button class="neu pill sm" data-act="history" type="button">Clear watch history</button>
+        <button class="neu pill sm" data-act="list" type="button">Clear My List</button>
+        <button class="neu pill sm" data-act="reset" type="button">Reset everything</button>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="footer"><p>Built for learning. Not affiliated with Netflix.</p></footer>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chrome.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/studio.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

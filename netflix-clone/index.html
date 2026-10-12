@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-motion="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Netflix Clone</title>
+  <script>try{var s=JSON.parse(localStorage.getItem("nf-clone:v1")||"{}");document.documentElement.dataset.theme=s.theme||"dark"}catch(e){}</script>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="index">
+<section class="landing">
+  <div class="mosaic" id="mosaic" aria-hidden="true"></div>
+  <div class="landing-card glass">
+    <h1>Unlimited movies, shows and more</h1>
+    <p>Watch anywhere. Start by entering your email.</p>
+    <form class="cta" id="cta">
+      <input class="input" type="email" id="email" placeholder="Email address" required aria-label="Email address">
+      <button class="btn-play" type="submit" data-magnetic>Get started</button>
+    </form>
+  </div>
+</section>
+<section class="features">
+  <article class="feature glass"><h2>Watch anywhere</h2><p>Pick up where you left off. Your progress is saved on every title.</p></article>
+  <article class="feature glass"><h2>A profile for everyone</h2><p>Create up to five profiles and switch between them any time.</p></article>
+  <article class="feature glass"><h2>Make it yours</h2><p>Three themes, any accent colour and adjustable liquid glass.</p></article>
+</section>
+<section class="faq">
+  <details class="glass"><summary>What is this?</summary><p>A front-end demo built for learning. It plays open-source sample videos and stores everything in your browser.</p></details>
+  <details class="glass"><summary>Is there an account?</summary><p>No. Your profiles, My List and watch progress are saved in this browser only.</p></details>
+  <details class="glass"><summary>Can I change how it looks?</summary><p>Yes. Open the studio from the sliders button to change the theme, accent colour and glass effect.</p></details>
+</section>
+<footer class="footer"><p>Built for learning. Not affiliated with Netflix.</p></footer>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chrome.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/studio.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

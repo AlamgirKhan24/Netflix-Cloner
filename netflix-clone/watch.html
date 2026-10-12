@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-motion="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Watch - Netflix Clone</title>
+  <script>try{var s=JSON.parse(localStorage.getItem("nf-clone:v1")||"{}");document.documentElement.dataset.theme=s.theme||"dark"}catch(e){}</script>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="watch">
+<div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Video player">
+    <video id="video" playsinline preload="metadata"></video>
+    <div class="player-ui" id="playerUi">
+      <div class="player-top">
+        <button class="neu round" id="pClose" aria-label="Close player"><i data-icon="close"></i></button>
+        <h2 id="pTitle"></h2>
+      </div>
+      <button class="neu big-play" id="pCenter" aria-label="Play or pause"><i data-icon="play"></i></button>
+      <div class="player-bar glass">
+        <div class="seek-row">
+          <span id="pCur">0:00</span>
+          <input class="slider" id="pSeek" type="range" min="0" max="1000" value="0" aria-label="Seek">
+          <span id="pDur">0:00</span>
+        </div>
+        <div class="ctrl-row">
+          <button class="neu round sm" id="pPlay" aria-label="Play or pause"><i data-icon="play"></i></button>
+          <div class="ctrl-group">
+            <button class="neu round sm" id="pMute" aria-label="Mute"><i data-icon="volume"></i></button>
+            <input class="slider short" id="pVol" type="range" min="0" max="100" value="80" aria-label="Volume">
+          </div>
+          <div class="ctrl-group">
+            <span class="ctrl-ico"><i data-icon="sun"></i></span>
+            <input class="slider short" id="pBright" type="range" min="50" max="150" value="100" aria-label="Brightness">
+          </div>
+          <span class="spacer"></span>
+          <button class="neu pill sm" id="pSpeed" aria-label="Playback speed">1x</button>
+          <button class="neu round sm" id="pFull" aria-label="Fullscreen"><i data-icon="expand"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="player-spinner" id="pSpin" hidden></div>
+    <p class="player-error glass" id="pError" hidden></p>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

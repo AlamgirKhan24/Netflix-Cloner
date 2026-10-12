@@ -1,0 +1,158 @@
+/* Design tokens, three themes and the liquid-glass surface. */
+:root {
+  --accent: #e50914;
+  --accent-rgb: 229, 9, 20;
+  --glass-alpha: 0.183;
+  --glass-blur: 18px;
+  --poster-w: 190px;
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d0e12;
+  --bg-2: #15171d;
+  --surface: #1a1c23;
+  --text: #f4f5f9;
+  --muted: #9aa0ae;
+  --shadow-dark: #07080a;
+  --shadow-light: #23262f;
+  --glass-tint: 255, 255, 255;
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --panel-rgb: 21, 23, 29;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eceff5;
+  --bg-2: #e2e6ef;
+  --surface: #e9ecf3;
+  --text: #14161c;
+  --muted: #596073;
+  --shadow-dark: #c2c8d8;
+  --shadow-light: #ffffff;
+  --glass-tint: 255, 255, 255;
+  --glass-border: rgba(20, 22, 28, 0.1);
+  --panel-rgb: 244, 246, 251;
+}
+
+[data-theme="oled"] {
+  color-scheme: dark;
+  --bg: #000;
+  --bg-2: #08080b;
+  --surface: #0d0d11;
+  --text: #fff;
+  --muted: #8a8f9c;
+  --shadow-dark: #000;
+  --shadow-light: #1a1b21;
+  --glass-tint: 255, 255, 255;
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --panel-rgb: 6, 6, 9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.45;
+  overflow-x: hidden;
+  transition: background-color 0.5s var(--ease), color 0.5s var(--ease);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px circle at 8% -10%, rgba(var(--accent-rgb), 0.2), transparent 60%),
+    radial-gradient(700px circle at 100% 45%, rgba(var(--accent-rgb), 0.1), transparent 60%);
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.glass {
+  position: relative;
+  isolation: isolate;
+  background-image: linear-gradient(
+    135deg,
+    rgba(var(--glass-tint), calc(var(--glass-alpha) + 0.06)),
+    rgba(var(--glass-tint), calc(var(--glass-alpha) * 0.55))
+  );
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 14px 38px rgba(0, 0, 0, 0.28);
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(260px circle at var(--mx, 25%) var(--my, 0%), rgba(255, 255, 255, 0.2), transparent 65%),
+    radial-gradient(420px circle at 0% 0%, rgba(var(--accent-rgb), 0.22), transparent 70%),
+    radial-gradient(360px circle at 100% 100%, rgba(var(--accent-rgb), 0.12), transparent 70%);
+}
+
+[data-blur="off"] .glass {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background-color: rgba(var(--panel-rgb), 0.88);
+}
+
+@media (max-width: 760px) {
+  .glass {
+    -webkit-backdrop-filter: blur(min(var(--glass-blur), 14px)) saturate(150%);
+    backdrop-filter: blur(min(var(--glass-blur), 14px)) saturate(150%);
+  }
+}
+
+html.theme-fade,
+html.theme-fade * {
+  transition:
+    background-color 0.5s var(--ease),
+    color 0.5s var(--ease),
+    border-color 0.5s var(--ease),
+    box-shadow 0.5s var(--ease) !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+[data-motion="reduce"] *,
+[data-motion="reduce"] *::before,
+[data-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}

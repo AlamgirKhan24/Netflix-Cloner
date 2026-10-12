@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-motion="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Movie - Netflix Clone</title>
+  <script>try{var s=JSON.parse(localStorage.getItem("nf-clone:v1")||"{}");document.documentElement.dataset.theme=s.theme||"dark"}catch(e){}</script>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="movie">
+<section class="hero movie-hero" id="movieHero">
+  <div class="hero-parallax" id="heroArt"><div class="hero-layer show" id="mBg"></div></div>
+  <div class="hero-panel glass">
+    <h2 id="mTitle"></h2>
+    <div class="meta" id="mMeta"></div>
+    <p class="hero-desc" id="mDesc"></p>
+    <div class="chips" id="mChips"></div>
+    <div class="hero-actions" style="margin-top:22px">
+      <a class="btn-play" id="mPlay" href="#" data-magnetic></a>
+      <button class="neu" id="mList" type="button" data-magnetic></button>
+      <a class="neu" href="browse.html">Back to browse</a>
+    </div>
+  </div>
+</section>
+<main class="page flush">
+  <h2 class="section-title">More like this</h2>
+  <div class="grid" id="grid"></div>
+</main>
+<footer class="footer"><p>Built for learning. Not affiliated with Netflix.</p></footer>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chrome.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/studio.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
